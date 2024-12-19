@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Archivos Encriptados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        label {
+            margin-right: 10px;
+        }
+        input[type="file"], input[type="text"], input[type="password"] {
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Subir Archivo</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <label for="file">Selecciona un archivo:</label>
+        <input type="file" name="file" id="file" required><br><br>
+
+        <label for="upload-password">Introduce una contraseña:</label>
+        <input type="password" name="password" id="upload-password" required><br><br>
+
+        <button type="submit">Subir y Encriptar</button>
+    </form>
+
+    <h1>Descargar Archivo Desencriptado</h1>
+    <form action="/download" method="POST">
+        <label for="filename">Nombre del archivo:</label>
+        <input type="text" name="filename" id="filename" required><br><br>
+
+        <label for="download-password">Introduce la contraseña:</label>
+        <input type="password" name="password" id="download-password" required><br><br>
+
+        <button type="submit">Descargar</button>
+    </form>
+
+</body>
+</html>
